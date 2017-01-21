@@ -1,8 +1,6 @@
 ﻿Shader "Custom/PixelatedShader" {
 	Properties{
 		_MainTex("Texture", 2D) = "white" {}
-		_PulseCenter("Pulse Center", Vector) = (0,0,0,0)
-		_PulseRadius("Pulse Radius", Float) = 10
 	}
 		SubShader{
 		Tags{ "RenderType" = "Opaque" }
@@ -10,13 +8,11 @@
 #pragma surface surf SimpleLambert
 
 	half4 LightingSimpleLambert(SurfaceOutput s, half3 lightDir, half3 viewDir, half atten) {
-		//half NdotL =round( dot(round(s.Normal), lightDir) * 10)/ 10;
+		half NdotL = dot(round(s.Normal), lightDir);
 		half4 c;
 		c.rgb = s.Albedo.rgb;
 		//c.rgb = fixed3 (1,1,1) * _LightColor0.rgb * (NdotL * atten);
-		//c.a = s.Alpha;
 		
-
 		return c;
 	}
 
@@ -26,20 +22,19 @@
 	};
 
 	sampler2D _MainTex;
-	uniform float4 _PulseCenter;
-	uniform float _PulseRadius;
 
-	uniform int _numPulses = 0;
-	uniform float4 _PulseCenters[10];
-	uniform float _PulseRadiuses[10];
+	uniform int _gNumPulses = 0;
+
+	uniform float4 _gPulseCenters[10];
+	uniform float _gPulseRadiuses[10];
 
 	void surf(Input IN, inout SurfaceOutput o) {
 		o.Albedo = tex2D(_MainTex, IN.uv_MainTex).rgb;
 		o.Albedo = float3(0, 0, 0);
 		
-		for (int i = 0; i < _numPulses; i++) {
-			float l = length(IN.worldPos - _PulseCenters[i]);
-			float r = _PulseRadiuses[i];
+		for (int i = 0; i < _gNumPulses; i++) {
+			float l = length(IN.worldPos - _gPulseCenters[i]);
+			float r = _gPulseRadiuses[i];
 			if (l > r * 0.9 && l < r) {
 				o.Albedo = float3(1, 1, 1);
 			}
