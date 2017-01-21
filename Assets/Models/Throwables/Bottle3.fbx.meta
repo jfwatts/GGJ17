@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 6744d625b53bfac4e87cd8d7dd6b9001
-timeCreated: 1485033062
-=======
-guid: 0658f4b5b326df743b2b366047a9d109
-timeCreated: 1485033176
->>>>>>> f91064dcb83354b76c63983139537cdf9899b1a6
+guid: 5a9deb878df5d0e4ca96d03e24a0200c
+timeCreated: 1485032233
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -14,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cube
+    4300000: Bottlethree
   materials:
     importMaterials: 1
     materialName: 0

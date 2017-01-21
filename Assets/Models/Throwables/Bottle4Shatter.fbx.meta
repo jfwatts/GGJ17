@@ -1,20 +1,62 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 6744d625b53bfac4e87cd8d7dd6b9001
-timeCreated: 1485033062
-=======
-guid: 0658f4b5b326df743b2b366047a9d109
-timeCreated: 1485033176
->>>>>>> f91064dcb83354b76c63983139537cdf9899b1a6
+guid: adebf732ec55c04419db0bf642fc12e4
+timeCreated: 1485032234
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: shard26
+    100004: shard27
+    100006: shard28
+    100008: shard29
+    100010: shard30
+    100012: shard31
+    100014: shard32
+    100016: shard33
+    100018: shard34
+    100020: shard35
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cube
+    400002: shard26
+    400004: shard27
+    400006: shard28
+    400008: shard29
+    400010: shard30
+    400012: shard31
+    400014: shard32
+    400016: shard33
+    400018: shard34
+    400020: shard35
+    2300000: shard26
+    2300002: shard27
+    2300004: shard28
+    2300006: shard29
+    2300008: shard30
+    2300010: shard31
+    2300012: shard32
+    2300014: shard33
+    2300016: shard34
+    2300018: shard35
+    3300000: shard26
+    3300002: shard27
+    3300004: shard28
+    3300006: shard29
+    3300008: shard30
+    3300010: shard31
+    3300012: shard32
+    3300014: shard33
+    3300016: shard34
+    3300018: shard35
+    4300000: shard26
+    4300002: shard27
+    4300004: shard28
+    4300006: shard29
+    4300008: shard30
+    4300010: shard31
+    4300012: shard32
+    4300014: shard33
+    4300016: shard34
+    4300018: shard35
   materials:
     importMaterials: 1
     materialName: 0
