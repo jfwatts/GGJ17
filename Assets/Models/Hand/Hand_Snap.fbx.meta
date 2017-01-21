@@ -1,82 +1,56 @@
 fileFormatVersion: 2
-guid: 3664d0434d16a1f43af153a742a25f7d
-timeCreated: 1484981997
+guid: d1f0c71a1ea621d4c830a17d25973579
+timeCreated: 1485021505
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Camera
-    100002: Cube
-    100004: Hand
-    100006: //RootNode
-    100008: HandMesh
-    100010: joint1
-    100012: joint10
-    100014: joint11
-    100016: joint12
-    100018: joint12_end
-    100020: joint13
-    100022: joint14
-    100024: joint15
-    100026: joint16
-    100028: joint16_end
-    100030: joint17
-    100032: joint18
-    100034: joint19
-    100036: joint2
-    100038: joint20
-    100040: joint20_end
-    100042: joint21
-    100044: joint3
-    100046: joint4
-    100048: joint4_end
-    100050: joint5
-    100052: joint6
-    100054: joint7
-    100056: joint8
-    100058: joint8_end
-    100060: joint9
-    100062: Lamp
-    400000: Camera
-    400002: Cube
-    400004: Hand
-    400006: //RootNode
-    400008: HandMesh
-    400010: joint1
-    400012: joint10
-    400014: joint11
-    400016: joint12
-    400018: joint12_end
-    400020: joint13
-    400022: joint14
-    400024: joint15
-    400026: joint16
-    400028: joint16_end
-    400030: joint17
-    400032: joint18
-    400034: joint19
-    400036: joint2
-    400038: joint20
-    400040: joint20_end
-    400042: joint21
-    400044: joint3
-    400046: joint4
-    400048: joint4_end
-    400050: joint5
-    400052: joint6
-    400054: joint7
-    400056: joint8
-    400058: joint8_end
-    400060: joint9
-    400062: Lamp
-    2300000: Cube
-    3300000: Cube
-    4300000: HandMesh
-    4300002: Cube
-    7400000: Hand|Hand|Take 001|BaseLayer
-    7400002: Hand_Snap
+    100000: //RootNode
+    100002: joint1
+    100004: joint10
+    100006: joint11
+    100008: joint12
+    100010: joint13
+    100012: joint14
+    100014: joint15
+    100016: joint16
+    100018: joint17
+    100020: joint18
+    100022: joint19
+    100024: joint2
+    100026: joint20
+    100028: joint21
+    100030: joint3
+    100032: joint4
+    100034: joint5
+    100036: joint6
+    100038: joint7
+    100040: joint8
+    100042: joint9
+    400000: //RootNode
+    400002: joint1
+    400004: joint10
+    400006: joint11
+    400008: joint12
+    400010: joint13
+    400012: joint14
+    400014: joint15
+    400016: joint16
+    400018: joint17
+    400020: joint18
+    400022: joint19
+    400024: joint2
+    400026: joint20
+    400028: joint21
+    400030: joint3
+    400032: joint4
+    400034: joint5
+    400036: joint6
+    400038: joint7
+    400040: joint8
+    400042: joint9
+    7400000: Hand_Snap
     9500000: //RootNode
-    13700000: HandMesh
   materials:
     importMaterials: 1
     materialName: 0
@@ -91,7 +65,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -99,96 +73,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Hand|Hand|Take 001|BaseLayer
-      takeName: Hand|Hand|Take 001|BaseLayer
-      firstFrame: 0
-      lastFrame: 11
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Hand
-        weight: 1
-      - path: Hand/joint1
-        weight: 1
-      - path: Hand/joint1/joint2
-        weight: 1
-      - path: Hand/joint1/joint2/joint3
-        weight: 1
-      - path: Hand/joint1/joint2/joint3/joint4
-        weight: 1
-      - path: Hand/joint1/joint2/joint3/joint4/joint4_end
-        weight: 1
-      - path: Hand/joint1/joint21
-        weight: 1
-      - path: Hand/joint1/joint21/joint5
-        weight: 1
-      - path: Hand/joint1/joint21/joint5/joint6
-        weight: 1
-      - path: Hand/joint1/joint21/joint5/joint6/joint7
-        weight: 1
-      - path: Hand/joint1/joint21/joint5/joint6/joint7/joint8
-        weight: 1
-      - path: Hand/joint1/joint21/joint5/joint6/joint7/joint8/joint8_end
-        weight: 1
-      - path: Hand/joint1/joint21/joint9
-        weight: 1
-      - path: Hand/joint1/joint21/joint9/joint10
-        weight: 1
-      - path: Hand/joint1/joint21/joint9/joint10/joint11
-        weight: 1
-      - path: Hand/joint1/joint21/joint9/joint10/joint11/joint12
-        weight: 1
-      - path: Hand/joint1/joint21/joint9/joint10/joint11/joint12/joint12_end
-        weight: 1
-      - path: Hand/joint1/joint21/joint13
-        weight: 1
-      - path: Hand/joint1/joint21/joint13/joint14
-        weight: 1
-      - path: Hand/joint1/joint21/joint13/joint14/joint15
-        weight: 1
-      - path: Hand/joint1/joint21/joint13/joint14/joint15/joint16
-        weight: 1
-      - path: Hand/joint1/joint21/joint13/joint14/joint15/joint16/joint16_end
-        weight: 1
-      - path: Hand/joint1/joint21/joint17
-        weight: 1
-      - path: Hand/joint1/joint21/joint17/joint18
-        weight: 1
-      - path: Hand/joint1/joint21/joint17/joint18/joint19
-        weight: 1
-      - path: Hand/joint1/joint21/joint17/joint18/joint19/joint20
-        weight: 1
-      - path: Hand/joint1/joint21/joint17/joint18/joint19/joint20/joint20_end
-        weight: 1
-      - path: HandMesh
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
       name: Hand_Snap
-      takeName: Hand|Hand|Take 001|Snap.001
-      firstFrame: 0
-      lastFrame: 14
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 18
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -211,61 +99,47 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: Hand
+      - path: joint1
         weight: 1
-      - path: Hand/joint1
+      - path: joint1/joint2
         weight: 1
-      - path: Hand/joint1/joint2
+      - path: joint1/joint2/joint3
         weight: 1
-      - path: Hand/joint1/joint2/joint3
+      - path: joint1/joint2/joint3/joint4
         weight: 1
-      - path: Hand/joint1/joint2/joint3/joint4
+      - path: joint1/joint21
         weight: 1
-      - path: Hand/joint1/joint2/joint3/joint4/joint4_end
+      - path: joint1/joint21/joint5
         weight: 1
-      - path: Hand/joint1/joint21
+      - path: joint1/joint21/joint5/joint6
         weight: 1
-      - path: Hand/joint1/joint21/joint5
+      - path: joint1/joint21/joint5/joint6/joint7
         weight: 1
-      - path: Hand/joint1/joint21/joint5/joint6
+      - path: joint1/joint21/joint5/joint6/joint7/joint8
         weight: 1
-      - path: Hand/joint1/joint21/joint5/joint6/joint7
+      - path: joint1/joint21/joint9
         weight: 1
-      - path: Hand/joint1/joint21/joint5/joint6/joint7/joint8
+      - path: joint1/joint21/joint9/joint10
         weight: 1
-      - path: Hand/joint1/joint21/joint5/joint6/joint7/joint8/joint8_end
+      - path: joint1/joint21/joint9/joint10/joint11
         weight: 1
-      - path: Hand/joint1/joint21/joint9
+      - path: joint1/joint21/joint9/joint10/joint11/joint12
         weight: 1
-      - path: Hand/joint1/joint21/joint9/joint10
+      - path: joint1/joint21/joint13
         weight: 1
-      - path: Hand/joint1/joint21/joint9/joint10/joint11
+      - path: joint1/joint21/joint13/joint14
         weight: 1
-      - path: Hand/joint1/joint21/joint9/joint10/joint11/joint12
+      - path: joint1/joint21/joint13/joint14/joint15
         weight: 1
-      - path: Hand/joint1/joint21/joint9/joint10/joint11/joint12/joint12_end
+      - path: joint1/joint21/joint13/joint14/joint15/joint16
         weight: 1
-      - path: Hand/joint1/joint21/joint13
+      - path: joint1/joint21/joint17
         weight: 1
-      - path: Hand/joint1/joint21/joint13/joint14
+      - path: joint1/joint21/joint17/joint18
         weight: 1
-      - path: Hand/joint1/joint21/joint13/joint14/joint15
+      - path: joint1/joint21/joint17/joint18/joint19
         weight: 1
-      - path: Hand/joint1/joint21/joint13/joint14/joint15/joint16
-        weight: 1
-      - path: Hand/joint1/joint21/joint13/joint14/joint15/joint16/joint16_end
-        weight: 1
-      - path: Hand/joint1/joint21/joint17
-        weight: 1
-      - path: Hand/joint1/joint21/joint17/joint18
-        weight: 1
-      - path: Hand/joint1/joint21/joint17/joint18/joint19
-        weight: 1
-      - path: Hand/joint1/joint21/joint17/joint18/joint19/joint20
-        weight: 1
-      - path: Hand/joint1/joint21/joint17/joint18/joint19/joint20/joint20_end
-        weight: 1
-      - path: HandMesh
+      - path: joint1/joint21/joint17/joint18/joint19/joint20
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
@@ -308,7 +182,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
