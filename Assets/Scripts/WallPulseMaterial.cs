@@ -7,6 +7,8 @@ public class WallPulseMaterial : MonoBehaviour {
     private Vector4[] centers = new Vector4[20];
     private float[] radiuses = new float[20];
     private float[] decays = new float[20];
+    public bool turnTheLightsOn = false;
+    public int numCircles = 3;
     // Use this for initialization
     void Start () {
         GameObject[] pulses = GameObject.FindGameObjectsWithTag("SoundPulse");
@@ -28,6 +30,8 @@ public class WallPulseMaterial : MonoBehaviour {
         Shader.SetGlobalVectorArray("_gPulseCenters", centers);
         Shader.SetGlobalFloatArray("_gPulseRadiuses", radiuses);
         Shader.SetGlobalInt("_gNumPulses", nPulses);
+        Shader.SetGlobalInt("_gLightsOn", turnTheLightsOn ? 1 : 0);
+        Shader.SetGlobalInt("_gNumCircles", numCircles);
     }
 	
 	// Update is called once per frame
@@ -52,5 +56,7 @@ public class WallPulseMaterial : MonoBehaviour {
         Shader.SetGlobalFloatArray("_gPulseRadiuses", radiuses);
         Shader.SetGlobalFloatArray("_gPulseDecayPower", decays);
         Shader.SetGlobalInt("_gNumPulses", nPulses);
+        Shader.SetGlobalInt("_gLightsOn", turnTheLightsOn ? 1 : 0);
+        Shader.SetGlobalInt("_gNumCircles", numCircles);
     }
 }
