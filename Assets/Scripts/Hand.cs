@@ -47,6 +47,7 @@ public class Hand : MonoBehaviour {
 
 		if (SteamVR_Controller.Input (myIndex).GetPressDown (SteamVR_Controller.ButtonMask.Trigger)) {
 			Instantiate (soundPulse, transform.position, transform.rotation);
+			GetComponent<AudioSource> ().Play ();
 		}
 	}
 }
