@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ColorFade : MonoBehaviour {
 	private Renderer myRend;
-	public Color color1;
-	public Color color2;
+	public Color color1 = Color.black;
+	public Color color2 = new Color(255,255,255,255);
 	public float timer = 0;
 	// Use this for initialization
 	void Start () {
