@@ -19,5 +19,9 @@ public class ColorFade : MonoBehaviour {
 			timer -= Time.deltaTime;
 			myRend.material.color = Color.Lerp (color1, color2, timer);
 		}
+
+		if (GetComponent<NewtonVR.NVRInteractableItem> () != null && GetComponent<NewtonVR.NVRInteractableItem> ().AttachedHand != null) {
+			timer = 1;
+		}
 	}
 }
