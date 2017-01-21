@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: aa6f72cf6f1701f47980466aded4d8f5
-timeCreated: 1485033062
-=======
-guid: 749046e680420444e9912554523e3a97
-timeCreated: 1485033176
->>>>>>> f91064dcb83354b76c63983139537cdf9899b1a6
+guid: 8b577e70e4c49d044933914f518b23f4
+timeCreated: 1485035381
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -14,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Key
+    4300000: Keyplate
   materials:
     importMaterials: 1
     materialName: 0
