@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class WallPulseMaterial : MonoBehaviour {
     private Vector4[] centers = new Vector4[20];
     private float[] radiuses = new float[20];
