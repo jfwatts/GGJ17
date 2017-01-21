@@ -1,21 +1,15 @@
 fileFormatVersion: 2
-guid: d13f19f9035e2094e8890dfe59a02705
+guid: a95b34eae47b3d14dab62cb9a96b0981
+timeCreated: 1485041015
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: BoltCutter1
-    100004: BoltCutter2
     400000: //RootNode
-    400002: BoltCutter1
-    400004: BoltCutter2
-    2300000: BoltCutter1
-    2300002: BoltCutter2
-    3300000: BoltCutter1
-    3300002: BoltCutter2
-    4300000: BoltCutter2
-    4300002: BoltCutter1
-    9500000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Chair
   materials:
     importMaterials: 1
     materialName: 0
@@ -78,7 +72,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
