@@ -9,6 +9,7 @@ public class SoundPulseCheap : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		MonsterPathing.lastSound = transform.position;
 		myRend = GetComponent<Renderer> ();
 		Invoke("Die", lifeSpan);
 	}
