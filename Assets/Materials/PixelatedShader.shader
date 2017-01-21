@@ -11,7 +11,7 @@
 		half NdotL = dot(round(s.Normal), lightDir);
 		half4 c;
 		c.rgb = s.Albedo.rgb;
-		//c.rgb = fixed3 (1,1,1) * _LightColor0.rgb * (NdotL * atten);
+		c.rgb = fixed3 (1,1,1) * _LightColor0.rgb * (NdotL * atten);
 		
 		return c;
 	}
