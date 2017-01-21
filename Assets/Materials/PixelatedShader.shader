@@ -25,8 +25,9 @@
 
 	uniform int _gNumPulses = 0;
 
-	uniform float4 _gPulseCenters[10];
-	uniform float _gPulseRadiuses[10];
+	uniform float4 _gPulseCenters[20];
+	uniform float _gPulseRadiuses[20];
+	uniform float _gPulseDecayPower[20];
 
 	void surf(Input IN, inout SurfaceOutput o) {
 		o.Albedo = tex2D(_MainTex, IN.uv_MainTex).rgb;
@@ -35,13 +36,31 @@
 		for (int i = 0; i < _gNumPulses; i++) {
 			float l = length(IN.worldPos - _gPulseCenters[i]);
 			float r = _gPulseRadiuses[i];
+			float c = 0;
+
+			if (r > 0) {
+				c = min(l / pow(r, _gPulseDecayPower[i]), 1.0);
+			}
+
 			if (l > r * 0.9 && l < r) {
-				o.Albedo = float3(1, 1, 1);
+				o.Albedo = float3(c, c, c);
 			}
 
 			if (l > r * 0.7 && l < r * 0.8) {
-				o.Albedo = float3(1, 1, 1);
+				o.Albedo = float3(c, c, c);
 			}
+
+			if (l > r * 0.5 && l < r * 0.6) {
+				o.Albedo = float3(c, c, c);
+			}
+
+			/*if (l > r * 0.3 && l < r * 0.4) {
+				o.Albedo = float3(c, c, c);
+			}
+
+			if (l > r * 0.1 && l < r * 0.2) {
+				o.Albedo = float3(c, c, c);
+			}*/
 		}
 
 	}
