@@ -7,14 +7,6 @@
 		CGPROGRAM
 #pragma surface surf SimpleLambert
 
-	half4 LightingSimpleLambert(SurfaceOutput s, half3 lightDir, half3 viewDir, half atten) {
-		half NdotL = dot(round(s.Normal), lightDir);
-		half4 c;
-		c.rgb = s.Albedo.rgb;
-		c.rgb = fixed3 (1,1,1) * _LightColor0.rgb * (NdotL * atten);
-		
-		return c;
-	}
 
 	struct Input {
 		float2 uv_MainTex;
@@ -28,6 +20,19 @@
 	uniform float4 _gPulseCenters[20];
 	uniform float _gPulseRadiuses[20];
 	uniform float _gPulseDecayPower[20];
+	uniform int _gLightsOn = 0;
+	uniform int _gNumCircles = 3;
+
+	half4 LightingSimpleLambert(SurfaceOutput s, half3 lightDir, half3 viewDir, half atten) {
+		half NdotL = dot(round(s.Normal), lightDir);
+		half4 c;
+		c.rgb = s.Albedo.rgb;
+		if (_gLightsOn > 0) {
+			c.rgb = fixed3(1, 1, 1) * _LightColor0.rgb * (NdotL * atten);
+		}
+		
+		return c;
+	}
 
 	void surf(Input IN, inout SurfaceOutput o) {
 		o.Albedo = tex2D(_MainTex, IN.uv_MainTex).rgb;
@@ -42,25 +47,25 @@
 				c = min(l / pow(r, _gPulseDecayPower[i]), 1.0);
 			}
 
-			if (l > r * 0.9 && l < r) {
+			if (l > r * 0.9 && l < r && _gNumCircles >= 1) {
 				o.Albedo = float3(c, c, c);
 			}
 
-			if (l > r * 0.7 && l < r * 0.8) {
+			if (l > r * 0.7 && l < r * 0.8 && _gNumCircles >= 2) {
 				o.Albedo = float3(c, c, c);
 			}
 
-			if (l > r * 0.5 && l < r * 0.6) {
+			if (l > r * 0.5 && l < r * 0.6 && _gNumCircles >= 3) {
 				o.Albedo = float3(c, c, c);
 			}
 
-			/*if (l > r * 0.3 && l < r * 0.4) {
+			if (l > r * 0.3 && l < r * 0.4 && _gNumCircles >= 4) {
 				o.Albedo = float3(c, c, c);
 			}
 
-			if (l > r * 0.1 && l < r * 0.2) {
+			if (l > r * 0.1 && l < r * 0.2 && _gNumCircles >= 5) {
 				o.Albedo = float3(c, c, c);
-			}*/
+			}
 		}
 
 	}
