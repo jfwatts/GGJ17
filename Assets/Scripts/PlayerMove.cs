@@ -2,12 +2,15 @@
 using System.Collections;
 
 public class PlayerMove : MonoBehaviour {
+	public Collider myCol;
+	public static Collider playerCollider;
 	public HandMovement myHand;
 	private Rigidbody myBody;
 	public Transform head;
 	public float speed = 5;
 	// Use this for initialization
 	void Start () {
+		playerCollider = myCol;
 		myBody = GetComponent<Rigidbody> ();
 	}
 	
