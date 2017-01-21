@@ -5,10 +5,12 @@ using UnityEngine;
 public class SoundPulseCheap : MonoBehaviour {
 	public float lifeSpan = 1.0f;
 	public float speed = 2.0f;
+	public float pulseMulti;
 	private Renderer myRend;
-
+	private SoundPulse myPulse;
 	// Use this for initialization
 	void Start () {
+		myPulse = GetComponent<SoundPulse> ();
 		MonsterPathing.lastSound = transform.position;
 		myRend = GetComponent<Renderer> ();
 		Invoke("Die", lifeSpan);
@@ -16,6 +18,7 @@ public class SoundPulseCheap : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		myPulse.radius += Time.deltaTime * pulseMulti;
 		transform.localScale = new Vector3(transform.localScale.x + (Time.deltaTime * speed),transform.localScale.y + (Time.deltaTime * speed),transform.localScale.z + (Time.deltaTime * speed));
 		myRend.material.color = new Color (myRend.material.color.r, myRend.material.color.g, myRend.material.color.b, myRend.material.color.a - (Time.deltaTime * (1 / lifeSpan)));
 	}
