@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class MonsterPathing : MonoBehaviour {
 	public static Vector3 lastSound;
 	public static float lastSoundStr;
-	public float speedDecay = 1;
+	public float speedDecay = 0.7f;
 	private NavMeshAgent myNav;
 	// Use this for initialization
 	void Start () {

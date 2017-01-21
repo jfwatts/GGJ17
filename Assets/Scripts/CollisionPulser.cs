@@ -18,6 +18,6 @@ public class CollisionPulser : MonoBehaviour {
 	void OnCollisionEnter (Collision other){
 		GameObject lastPulse = (GameObject)Instantiate (soundPulser, other.contacts [0].point, transform.rotation);
 		lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = GetComponent<Rigidbody> ().velocity.magnitude * multi;
-		MonsterPathing.lastSoundStr = multi * 0.5f;
+		MonsterPathing.lastSoundStr = GetComponent<Rigidbody> ().velocity.magnitude * multi;
 	}
 }
