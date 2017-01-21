@@ -6,14 +6,18 @@ using UnityEngine;
 public class WallPulseMaterial : MonoBehaviour {
     private Vector4[] centers = new Vector4[20];
     private float[] radiuses = new float[20];
+    private float[] decays = new float[20];
     // Use this for initialization
     void Start () {
         GameObject[] pulses = GameObject.FindGameObjectsWithTag("SoundPulse");
         int nPulses = pulses.Length;
         for (int i = 0; i < pulses.Length; i++)
         {
+            SoundPulse pulse = pulses[i].GetComponent<SoundPulse>();
+
             centers[i] = pulses[i].transform.position;
-            radiuses[i] = pulses[i].GetComponent<SoundPulse>().radius;
+            radiuses[i] = pulse.radius;
+            decays[i] = pulse.decay;
         }
 
         /*  Renderer renderer = GetComponent<Renderer>();
@@ -32,8 +36,11 @@ public class WallPulseMaterial : MonoBehaviour {
         int nPulses = pulses.Length;
         for (int i=0; i<pulses.Length; i++)
         {
+            SoundPulse pulse = pulses[i].GetComponent<SoundPulse>();
+
             centers[i] = pulses[i].transform.position;
-            radiuses[i] = pulses[i].GetComponent<SoundPulse>().radius;
+            radiuses[i] = pulse.radius;
+            decays[i] = pulse.decay;
         }
 
        /* Renderer renderer = GetComponent<Renderer>();
@@ -43,6 +50,7 @@ public class WallPulseMaterial : MonoBehaviour {
         material.SetInt("_numPulses", nPulses);*/
         Shader.SetGlobalVectorArray("_gPulseCenters", centers);
         Shader.SetGlobalFloatArray("_gPulseRadiuses", radiuses);
+        Shader.SetGlobalFloatArray("_gPulseDecayPower", decays);
         Shader.SetGlobalInt("_gNumPulses", nPulses);
     }
 }
