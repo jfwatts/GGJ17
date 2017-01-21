@@ -15,7 +15,8 @@ public class MonsterPathing : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		myNav.SetDestination (lastSound);
-		if(myNav.speed > 0)
-			myNav.speed -= Time.deltaTime * speedDecay;
+		if(lastSoundStr > 0)
+			lastSoundStr -= Time.deltaTime * speedDecay;
+		myNav.speed = lastSoundStr;
 	}
 }
