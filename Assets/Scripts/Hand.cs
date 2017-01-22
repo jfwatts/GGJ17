@@ -48,13 +48,13 @@ public class Hand : MonoBehaviour {
 				theMenu.SetActive(true);
 		}
 
-		if ((SteamVR_Controller.Input (myIndex).GetPressDown (SteamVR_Controller.ButtonMask.Trigger) || Input.GetKeyDown(KeyCode.P)) && snapTimer <= 0) {
+		if ((SteamVR_Controller.Input (myIndex).GetPressDown (SteamVR_Controller.ButtonMask.Trigger) || Input.GetKeyDown(KeyCode.P))) {
 			Snap ();
 		}
 	}
 
 	void Snap(){
-		snapTimer = 2;
+		//snapTimer = 0;
 		GameObject lastPulse = (GameObject)Instantiate (soundPulse, transform.position, transform.rotation);
 		lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = 5.0f;
 		lastPulse.GetComponent<SoundPulse> ().decay = 3.5f;

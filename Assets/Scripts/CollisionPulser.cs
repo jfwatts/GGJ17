@@ -8,6 +8,7 @@ public class CollisionPulser : MonoBehaviour {
 	private AudioSource mySound;
 	private float timer = 0;
 	public float cooldown = 1.0f;
+	public bool player = false;
 	// Use this for initialization
 	void Start () {
 		if(GetComponent<AudioSource>() != null)
@@ -26,6 +27,9 @@ public class CollisionPulser : MonoBehaviour {
 			GameObject lastPulse = (GameObject)Instantiate (soundPulser, other.contacts [0].point, transform.rotation);
 			MonsterPathing.monsterAI.HeardSomething (transform.position, GetComponent<Rigidbody> ().velocity.magnitude * multi);
 			lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = GetComponent<Rigidbody> ().velocity.magnitude * multi;
+			if (player)
+				lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = 4;
+			lastPulse.GetComponent<SoundPulseCheap> ().UpdateLifeSpan ();
 			if (mySound != null) {
 				mySound.Play ();
 			}
