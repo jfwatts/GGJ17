@@ -1,17 +1,15 @@
 fileFormatVersion: 2
-guid: 4c5ee852bb16638409bc37f8004f52a2
-timeCreated: 1480015994
-licenseType: Store
+guid: db04cb82e2ed04542a6716e1393ec541
+timeCreated: 1485046801
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: default
-    100002: //RootNode
-    400000: default
-    400002: //RootNode
-    2300000: default
-    3300000: default
-    4300000: default
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Sink
   materials:
     importMaterials: 1
     materialName: 0
@@ -72,7 +70,7 @@ ModelImporter:
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
-    skeletonHasParents: 0
+    skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
   humanoidOversampling: 1
