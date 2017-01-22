@@ -58,7 +58,7 @@ public class Hand : MonoBehaviour {
 		GameObject lastPulse = (GameObject)Instantiate (soundPulse, transform.position, transform.rotation);
 		lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = 5.0f;
 		lastPulse.GetComponent<SoundPulse> ().decay = 3.5f;
-		MonsterPathing.lastSoundStr = 1;
+		MonsterPathing.monsterAI.HeardSomething (transform.position, 2);
 		GetComponent<AudioSource> ().Play ();
 	}
 }

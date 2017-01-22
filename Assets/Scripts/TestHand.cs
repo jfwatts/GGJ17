@@ -14,7 +14,7 @@ public class TestHand : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.P)) {
 			print ("snap");
 			GameObject lastPulse = (GameObject)Instantiate (soundPulse, transform.position, transform.rotation);
-			MonsterPathing.lastSoundStr = 1.5f;
+			MonsterPathing.monsterAI.HeardSomething (transform.position, 1.5f);
 			lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = 5.0f;
 			lastPulse.GetComponent<SoundPulse> ().decay = 4f;
 		}
