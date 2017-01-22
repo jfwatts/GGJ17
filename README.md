@@ -1,7 +1,7 @@
 # GGJ17
-**reVeRb** is our Global Game Jam 2017 Entry made at [Facebook HQ](http://globalgamejam.org/2017/jam-sites/facebook-hq)
+**reVeRb** is our Global Game Jam 2017 entry made at [Facebook HQ](http://globalgamejam.org/2017/jam-sites/facebook-hq). The theme was "waves".
 
-**reVeRb** is a virtual reality survival game. You are trapped in a pitch black room and must use sound to navigate your surroundings and escape the monster hunting you.
+**reVeRb** is a virtual reality survival game. You are trapped in a pitch black room and must use sound waves to navigate your surroundings and escape the monster hunting you.
 
 ## Team
 Programmer: **Tyler Smith**  
