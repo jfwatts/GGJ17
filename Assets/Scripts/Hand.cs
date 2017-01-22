@@ -12,6 +12,7 @@ public class Hand : MonoBehaviour {
 	public GameObject theMenu;
 	public GameObject Pointer;
 	public GameObject soundPulse;
+	private float snapTimer = 0;
 	// Use this for initialization
 	void Start () {
 		myTrack = GetComponent<SteamVR_TrackedObject> ();
@@ -20,6 +21,8 @@ public class Hand : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (snapTimer > 0)
+			snapTimer -= Time.deltaTime;
 		if (SteamVR_Controller.Input (myIndex).GetPress (SteamVR_Controller.ButtonMask.Grip)) {
 			grip = true;
 		} 
@@ -45,12 +48,17 @@ public class Hand : MonoBehaviour {
 				theMenu.SetActive(true);
 		}
 
-		if (SteamVR_Controller.Input (myIndex).GetPressDown (SteamVR_Controller.ButtonMask.Trigger) || Input.GetKeyDown(KeyCode.P)) {
-			GameObject lastPulse = (GameObject)Instantiate (soundPulse, transform.position, transform.rotation);
-			lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = 5.0f;
-			lastPulse.GetComponent<SoundPulse> ().decay = 4f;
-			MonsterPathing.lastSoundStr = 1;
-			GetComponent<AudioSource> ().Play ();
+		if ((SteamVR_Controller.Input (myIndex).GetPressDown (SteamVR_Controller.ButtonMask.Trigger) || Input.GetKeyDown(KeyCode.P)) && snapTimer <= 0) {
+			Snap ();
 		}
+	}
+
+	void Snap(){
+		snapTimer = 1;
+		GameObject lastPulse = (GameObject)Instantiate (soundPulse, transform.position, transform.rotation);
+		lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = 5.0f;
+		lastPulse.GetComponent<SoundPulse> ().decay = 4f;
+		MonsterPathing.lastSoundStr = 1;
+		GetComponent<AudioSource> ().Play ();
 	}
 }

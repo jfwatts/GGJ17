@@ -26,7 +26,10 @@ public class SoundPulseCheap : MonoBehaviour {
 	void Die(){
 		Destroy(gameObject);
 	}
-
+	public void UpdateLifeSpan(){
+		CancelInvoke ();
+		Invoke ("Die", lifeSpan);
+	}
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.GetComponent<ColorFade>() != null) {
 			other.gameObject.GetComponent<ColorFade> ().timer = 1;
