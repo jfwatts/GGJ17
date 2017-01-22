@@ -54,10 +54,10 @@ public class Hand : MonoBehaviour {
 	}
 
 	void Snap(){
-		snapTimer = 1;
+		snapTimer = 2;
 		GameObject lastPulse = (GameObject)Instantiate (soundPulse, transform.position, transform.rotation);
 		lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = 5.0f;
-		lastPulse.GetComponent<SoundPulse> ().decay = 4f;
+		lastPulse.GetComponent<SoundPulse> ().decay = 3.5f;
 		MonsterPathing.lastSoundStr = 1;
 		GetComponent<AudioSource> ().Play ();
 	}
