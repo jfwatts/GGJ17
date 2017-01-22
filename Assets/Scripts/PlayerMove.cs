@@ -8,10 +8,13 @@ public class PlayerMove : MonoBehaviour {
 	private Rigidbody myBody;
 	public Transform head;
 	public float speed = 5;
+
+    private WalkDetector walkDetector = null;
 	// Use this for initialization
 	void Start () {
 		playerCollider = myCol;
 		myBody = GetComponent<Rigidbody> ();
+        walkDetector = GetComponent<WalkDetector>();
 	}
 	
 	// Update is called once per frame
@@ -20,8 +23,10 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	void MoveManager(){
-		Vector3 moveAdj = head.forward * myHand.touch.y * speed;
-		moveAdj += head.right * myHand.touch.x * speed;
+        float moveFlag = walkDetector.isWalking ? 1.0f : 0;
+        //Vector3 moveAdj = head.forward * myHand.touch.y * speed;
+        Vector3 moveAdj = head.forward * moveFlag * speed;
+        moveAdj += head.right * myHand.touch.x * speed;
 		if(Mathf.Abs(myHand.touch.x) > 0.5f && Mathf.Abs(myHand.touch.y) > 0.5f)
 			moveAdj *= 0.75f;
 		moveAdj.y = myBody.velocity.y;
