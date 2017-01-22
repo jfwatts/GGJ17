@@ -46,7 +46,9 @@ public class Hand : MonoBehaviour {
 		}
 
 		if (SteamVR_Controller.Input (myIndex).GetPressDown (SteamVR_Controller.ButtonMask.Trigger) || Input.GetKeyDown(KeyCode.P)) {
-			Instantiate (soundPulse, transform.position, transform.rotation);
+			GameObject lastPulse = (GameObject)Instantiate (soundPulse, transform.position, transform.rotation);
+			lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = 5.0f;
+			lastPulse.GetComponent<SoundPulse> ().decay = 4f;
 			MonsterPathing.lastSoundStr = 1;
 			GetComponent<AudioSource> ().Play ();
 		}

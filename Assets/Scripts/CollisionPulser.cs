@@ -18,11 +18,13 @@ public class CollisionPulser : MonoBehaviour {
 	}
 
 	void OnCollisionEnter (Collision other){
-		GameObject lastPulse = (GameObject)Instantiate (soundPulser, other.contacts [0].point, transform.rotation);
-		lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = GetComponent<Rigidbody> ().velocity.magnitude * multi;
-		MonsterPathing.lastSoundStr = GetComponent<Rigidbody> ().velocity.magnitude * multi;
-		if (mySound != null) {
-			mySound.Play ();
+		if(!(gameObject.tag == "Player" && other.gameObject.tag == "Floor")){
+			GameObject lastPulse = (GameObject)Instantiate (soundPulser, other.contacts [0].point, transform.rotation);
+			lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = GetComponent<Rigidbody> ().velocity.magnitude * multi;
+			MonsterPathing.lastSoundStr = GetComponent<Rigidbody> ().velocity.magnitude * multi;
+			if (mySound != null) {
+				mySound.Play ();
+			}
 		}
 	}
 }
