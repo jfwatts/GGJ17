@@ -8,7 +8,7 @@ public class PlayerMove : MonoBehaviour {
 	public Rigidbody myBody;
 	public Transform head;
 	public float speed = 5;
-
+	public Hand[] myHands;
     private WalkDetector walkDetector = null;
 	// Use this for initialization
 	void Start () {
@@ -31,5 +31,9 @@ public class PlayerMove : MonoBehaviour {
 			moveAdj *= 0.75f;
 		moveAdj.y = myBody.velocity.y;
 		myBody.velocity = moveAdj;
+	}
+	void OnCollisionEnter(){
+		SteamVR_Controller.Input(myHands[0]).TriggerHapticPulse(3999);
+		SteamVR_Controller.Input(myHands[1]).TriggerHapticPulse(3999);
 	}
 }

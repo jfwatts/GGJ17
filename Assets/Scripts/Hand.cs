@@ -56,9 +56,14 @@ public class Hand : MonoBehaviour {
 	void Snap(){
 		//snapTimer = 0;
 		GameObject lastPulse = (GameObject)Instantiate (soundPulse, transform.position, transform.rotation);
+		SteamVR_Controller.Input(myIndex).TriggerHapticPulse(3999);
 		lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = 5.0f;
 		lastPulse.GetComponent<SoundPulse> ().decay = 3.5f;
 		MonsterPathing.monsterAI.HeardSomething (transform.position, 2);
 		GetComponent<AudioSource> ().Play ();
+	}
+
+	void OnTriggerEnter(){
+		SteamVR_Controller.Input(myIndex).TriggerHapticPulse(2000);
 	}
 }
