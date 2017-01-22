@@ -4,16 +4,16 @@ using UnityEngine;
 
 [ExecuteInEditMode]
 public class WallPulseMaterial : MonoBehaviour {
-    private Vector4[] centers = new Vector4[20];
-    private float[] radiuses = new float[20];
-    private float[] decays = new float[20];
+    private Vector4[] centers = new Vector4[50];
+    private float[] radiuses = new float[50];
+    private float[] decays = new float[50];
     public bool turnTheLightsOn = false;
     public int numCircles = 3;
     // Use this for initialization
     void Start () {
         GameObject[] pulses = GameObject.FindGameObjectsWithTag("SoundPulse");
-        int nPulses = pulses.Length;
-        for (int i = 0; i < pulses.Length; i++)
+        int nPulses = Mathf.Min(pulses.Length, 50);
+        for (int i = 0; i < nPulses; i++)
         {
             SoundPulse pulse = pulses[i].GetComponent<SoundPulse>();
 
@@ -22,11 +22,6 @@ public class WallPulseMaterial : MonoBehaviour {
             decays[i] = pulse.decay;
         }
 
-        /*  Renderer renderer = GetComponent<Renderer>();
-          Material material = renderer.sharedMaterial;
-          material.SetVectorArray("_PulseCenters", centers);
-          material.SetFloatArray("_PulseRadiuses", radiuses);
-          material.SetInt("_numPulses", nPulses);*/
         Shader.SetGlobalVectorArray("_gPulseCenters", centers);
         Shader.SetGlobalFloatArray("_gPulseRadiuses", radiuses);
         Shader.SetGlobalInt("_gNumPulses", nPulses);

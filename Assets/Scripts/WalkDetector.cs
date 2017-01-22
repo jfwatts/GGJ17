@@ -5,7 +5,7 @@ using UnityEngine;
 public class WalkDetector : MonoBehaviour {
     public GameObject palm1;
     public GameObject palm2;
-    private float sampleRate = 0.1f;
+    private float sampleRate = 0.05f;
     private int maxHistory = 100;
     private LinkedList<Vector3> vecList = new LinkedList<Vector3>();
     int count = 0;
