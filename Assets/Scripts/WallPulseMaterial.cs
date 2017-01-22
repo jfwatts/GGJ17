@@ -36,7 +36,7 @@ public class WallPulseMaterial : MonoBehaviour {
 	void Update () {
         GameObject[] pulses = GameObject.FindGameObjectsWithTag("SoundPulse");
         int nPulses = Mathf.Min(pulses.Length, 50);
-        for (int i=0; i<pulses.Length; i++)
+        for (int i=0; i< nPulses; i++)
         {
             SoundPulse pulse = pulses[i].GetComponent<SoundPulse>();
 

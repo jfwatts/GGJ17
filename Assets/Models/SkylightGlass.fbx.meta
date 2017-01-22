@@ -1,5 +1,7 @@
 fileFormatVersion: 2
-guid: db04cb82e2ed04542a6716e1393ec541
+guid: 4e176eec624c618488d96b73931aad64
+timeCreated: 1485051749
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -7,8 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Sink
-    9500000: //RootNode
+    4300000: GlassNotBroken
   materials:
     importMaterials: 1
     materialName: 0
@@ -33,7 +34,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -71,7 +72,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
