@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BoltCut : MonoBehaviour {
 	private GameObject lastLink;
+	public Transform otherHead;
+	public float distancebetween;
+	private bool closed;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,18 +14,20 @@ public class BoltCut : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-
-	void OnTriggerEnter(Collider other){
-		if (other.gameObject.name == "Head1") {
-			print ("CHOMP");
+		distancebetween = Vector3.Distance (transform.position, otherHead.position);
+		if (distancebetween < 0.036 && !closed) {
+			closed = true;
+			print ("Chomp");
 			if (lastLink != null) {
 				ChainBreak.chainBreak.Break (lastLink);
 				Destroy (gameObject);
 			}
 		}
+		if (distancebetween > 0.036 && closed) {
+			closed = false;
+		}
 	}
+		
 	void OnTriggerStay(Collider other){
 		if (other.gameObject.name == "Chainlink") {
 			lastLink = other.gameObject;
