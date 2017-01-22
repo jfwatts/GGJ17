@@ -11,10 +11,13 @@ public class MonsterPathing : MonoBehaviour {
 	public float noiseFrequency = 0.5f;
 	private NavMeshAgent myNav;
 	private float timer = 0;
-	private float anotherTimer = 0;
+	private float anotherTimer = 10;
 
 	public GameObject deathSprite;
 	public PlayerMove player;
+	public Transform[] wanderTargets;
+	public AudioSource mySound;
+	public AudioClip[] sounds;
 	// Use this for initialization
 	void Start () {
 		monsterAI = this;
@@ -30,6 +33,11 @@ public class MonsterPathing : MonoBehaviour {
 			timer -= Time.deltaTime;
 		if (anotherTimer > 0)
 			anotherTimer -= Time.deltaTime;
+		if (anotherTimer <= 0) {
+			anotherTimer = 10;
+			Wander ();
+		}
+
 		if (timer <= 0 && myNav.speed > 1) {
 			timer = noiseFrequency;
 			MakeNoise ();
@@ -53,6 +61,17 @@ public class MonsterPathing : MonoBehaviour {
 	void OnCollisionEnter(Collision other){
 		if (other.gameObject.tag == "Player") {
 			StartCoroutine (KillPlayer());
+		}
+	}
+	void Wander (){
+		int rand = Random.Range (0, 100);
+		if (rand < 33) {
+			lastSound = wanderTargets [Random.Range (0, wanderTargets.Length)];
+			lastSoundStr = 2;
+		}
+		if (rand < 50) {
+			mySound.clip = sounds [Random.Range (0, sounds.Length)];
+			mySound.Play ();
 		}
 	}
 	IEnumerator KillPlayer(){

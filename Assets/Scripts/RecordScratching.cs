@@ -14,6 +14,10 @@ public class RecordScratching : MonoBehaviour {
 			GetComponent<RecordPlayer> ().enabled = true;
 			this.enabled = false;
 	}
+	void OnTriggerEnter(Collider other){
+		GetComponent<RecordPlayer> ().enabled = true;
+		this.enabled = false;
+	}
 	// Update is called once per frame
 	void Update () {
 		if (timer > 0)
