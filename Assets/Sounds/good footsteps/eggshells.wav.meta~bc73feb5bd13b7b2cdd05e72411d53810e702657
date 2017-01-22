@@ -1,16 +1,11 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 1d7ef0b42a8df914e80615ef0a51f0e3
-timeCreated: 1485049502
+<<<<<<< HEAD:Assets/Sounds/good footsteps/eggshells.wav.meta
+guid: 3f845253d6f7f9e4e9c64b2618754bcf
+timeCreated: 1485051657
 =======
-<<<<<<< HEAD
-guid: 96fa4014f0d508a4eb6b2fe6a0082b5d
-timeCreated: 1485051676
-=======
-guid: 0b645e950b05843a2b076815007a8445
-timeCreated: 1485051937
->>>>>>> 1a361f6665d9fb46a881794a537daa5fd6ad9cfb
->>>>>>> bc73feb5bd13b7b2cdd05e72411d53810e702657
+guid: f3a6300b4bc0d41e7bf8e6b9eafa30bf
+timeCreated: 1485051980
+>>>>>>> 1a361f6665d9fb46a881794a537daa5fd6ad9cfb:Assets/Sounds/good footsteps/eggshells.wav.meta
 licenseType: Free
 AudioImporter:
   serializedVersion: 6
