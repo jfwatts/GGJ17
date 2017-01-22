@@ -16,6 +16,7 @@ public class BoltCut : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.name == "Head1") {
+			print ("CHOMP");
 			if (lastLink != null) {
 				ChainBreak.chainBreak.Break (lastLink);
 				Destroy (gameObject);
