@@ -9,8 +9,11 @@ public class WallPulseMaterial : MonoBehaviour {
     private float[] decays = new float[20];
     public bool turnTheLightsOn = false;
     public int numCircles = 3;
+	public static Material[] mats = new Material[2];
+	public  Material[] theMats = new Material[2];
     // Use this for initialization
     void Start () {
+		mats = theMats;
         GameObject[] pulses = GameObject.FindGameObjectsWithTag("SoundPulse");
         int nPulses = pulses.Length;
         for (int i = 0; i < pulses.Length; i++)
