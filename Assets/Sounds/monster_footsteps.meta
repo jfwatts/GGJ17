@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Sounds/monster_footsteps.meta
 guid: 357c5258010e2494aabd0a44e2f8dc9a
 folderAsset: yes
 timeCreated: 1485051650
+=======
+guid: dbeac8b1bebab4d0d8ec81f0e81397d3
+folderAsset: yes
+timeCreated: 1485051914
+>>>>>>> 1a361f6665d9fb46a881794a537daa5fd6ad9cfb:Assets/Sounds/monster_footsteps.meta
 licenseType: Free
 DefaultImporter:
   userData: 

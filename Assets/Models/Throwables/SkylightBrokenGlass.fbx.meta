@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 02e6c7c210fa3c84389a5452f8acb846
 timeCreated: 1485051677
+=======
+guid: d0b9c109d764b4f5d9b463d843742bca
+timeCreated: 1485051989
+>>>>>>> 1a361f6665d9fb46a881794a537daa5fd6ad9cfb
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
