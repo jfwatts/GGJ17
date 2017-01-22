@@ -32,6 +32,9 @@ public class Shatter : MonoBehaviour {
 		}
 		lastSpawn.transform.parent = transform.parent;
 		lastSpawn.transform.localScale = transform.localScale;
-		Destroy(gameObject);
+		GetComponent<Renderer> ().enabled = false;
+		GetComponent<Rigidbody> ().isKinematic = true;
+		GetComponent<Collider> ().isTrigger = true;
+		Destroy(gameObject, 0.4f);
 	}
 }

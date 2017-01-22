@@ -12,14 +12,14 @@ public class FaucetKnob : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-
-	void OnTriggerEnter(Collider other){
-		if (other.gameObject.name == "FaucetTrigger") {
+		if (GetComponent<NewtonVR.NVRInteractableItem>().AttachedHand != null) {
 			knob.enabled = false;
 			drip.started = true;
 			Destroy (gameObject, 0.1f);
 		}
+	}
+
+	void OnTriggerEnter(Collider other){
+		
 	}
 }
