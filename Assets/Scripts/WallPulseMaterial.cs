@@ -12,6 +12,10 @@ public class WallPulseMaterial : MonoBehaviour {
 	public static Material[] mats = new Material[2];
 	public  Material[] theMats = new Material[2];
     // Use this for initialization
+
+    void Awake(){
+        mats = theMats;
+    }
     void Start () {
 		mats = theMats;
         GameObject[] pulses = GameObject.FindGameObjectsWithTag("SoundPulse");
