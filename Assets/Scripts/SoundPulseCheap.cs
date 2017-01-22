@@ -8,15 +8,10 @@ public class SoundPulseCheap : MonoBehaviour {
 	public float pulseMulti;
 	private Renderer myRend;
 	private SoundPulse myPulse;
-	public bool deadSound = false;
 	// Use this for initialization
 	void Start () {
 		myPulse = GetComponent<SoundPulse> ();
 		myRend = GetComponent<Renderer> ();
-		if (!deadSound) {
-			MonsterPathing.lastSound = transform.position;
-			print ("noise made monster moving");
-		}
 		
 		Invoke("Die", lifeSpan);
 	}
