@@ -5,6 +5,8 @@ using UnityEngine;
 public class DoorSlam : MonoBehaviour {
 	private AudioSource mySound;
 	public GameObject door;
+	public NewtonVR.NVRInteractableItem knob1;
+	public NewtonVR.NVRInteractableItem knob2;
 	// Use this for initialization
 	void Start () {
 		mySound = GetComponent<AudioSource> ();
@@ -16,11 +18,17 @@ public class DoorSlam : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
+		print ("something entered");
 		if (other.gameObject.CompareTag ("Player")) {
+			print ("it was the player");
 			mySound.Play ();
-			door.transform.position = Vector3.zero;
-			door.transform.eulerAngles = Vector3.zero;
-			door.GetComponent<Rigidbody>().isKinematic = true;;
+			door.transform.localPosition = Vector3.zero;
+			door.transform.localEulerAngles = Vector3.zero;
+			door.GetComponent<Rigidbody> ().isKinematic = true;
+			knob1.enabled = false;
+			knob2.enabled = false;
+			Destroy (gameObject, 0.1f);
+			print ("i got this far why the fuck did nothing happen");
 		}
 	}
 }
