@@ -12,6 +12,10 @@ public class WallPulseMaterial : MonoBehaviour {
 	public static Material[] mats = new Material[2];
 	public  Material[] theMats = new Material[2];
     // Use this for initialization
+
+    void Awake(){
+        mats = theMats;
+    }
     void Start () {
 		mats = theMats;
         GameObject[] pulses = GameObject.FindGameObjectsWithTag("SoundPulse");
@@ -36,7 +40,7 @@ public class WallPulseMaterial : MonoBehaviour {
 	void Update () {
         GameObject[] pulses = GameObject.FindGameObjectsWithTag("SoundPulse");
         int nPulses = Mathf.Min(pulses.Length, 50);
-        for (int i=0; i<pulses.Length; i++)
+        for (int i=0; i< nPulses; i++)
         {
             SoundPulse pulse = pulses[i].GetComponent<SoundPulse>();
 

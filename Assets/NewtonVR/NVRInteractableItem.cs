@@ -55,18 +55,7 @@ namespace NewtonVR
         protected virtual void FixedUpdate()
         {
 
-			if (AttachedHand != null && GetComponent<Renderer> () != null && GetComponent<Renderer> ().material == WallPulseMaterial.mats [0]) {
-				GetComponent<Renderer> ().material = WallPulseMaterial.mats [1];
-			}
-			if (AttachedHand == null && GetComponent<Renderer> () != null && GetComponent<Renderer> ().material == WallPulseMaterial.mats [1]) {
-				GetComponent<Renderer> ().material = WallPulseMaterial.mats [0];
-			}
-			if (AttachedHand != null && GetComponentInChildren<Renderer> () != null && GetComponentInChildren<Renderer> ().material == WallPulseMaterial.mats [0]) {
-				GetComponentInChildren<Renderer> ().material = WallPulseMaterial.mats [1];
-			}
-			if (AttachedHand == null && GetComponentInChildren<Renderer> () != null && GetComponentInChildren<Renderer> ().material == WallPulseMaterial.mats [1]) {
-				GetComponentInChildren<Renderer> ().material = WallPulseMaterial.mats [0];
-			}
+
             if (IsAttached == true)
             {
                 bool dropped = CheckForDrop();
