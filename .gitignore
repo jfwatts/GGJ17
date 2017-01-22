@@ -30,3 +30,6 @@ sysinfo.txt
 *.unitypackage
 
 Assets/Sounds/.DS_Store
+Assets/NewtonVR/Meshs/NVREditorPlayer.obj.meta
+Assets/NewtonVR/Resources/TouchControllers/oculusTouchLeftModel.obj.meta
+Assets/NewtonVR/Resources/TouchControllers/oculusTouchRightModel.obj.meta
