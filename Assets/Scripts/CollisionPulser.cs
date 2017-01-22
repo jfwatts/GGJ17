@@ -24,8 +24,8 @@ public class CollisionPulser : MonoBehaviour {
 		if(!(gameObject.tag == "Player" && other.gameObject.tag == "Floor") && timer <= 0){
 			timer = cooldown;
 			GameObject lastPulse = (GameObject)Instantiate (soundPulser, other.contacts [0].point, transform.rotation);
+			MonsterPathing.monsterAI.HeardSomething (transform.position, GetComponent<Rigidbody> ().velocity.magnitude * multi);
 			lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = GetComponent<Rigidbody> ().velocity.magnitude * multi;
-			MonsterPathing.lastSoundStr = GetComponent<Rigidbody> ().velocity.magnitude * multi;
 			if (mySound != null) {
 				mySound.Play ();
 			}
