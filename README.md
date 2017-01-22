@@ -4,7 +4,6 @@
 **reVeRb** is a virtual reality survival game. You are trapped in a pitch black room and must use sound to navigate your surroundings and escape the monster hunting you.
 
 ## Team
----
 Programmer: **Tyler Smith**  
 Programmer: **Ori Hanegby**  
 Programmer: **Mike Lagomarsino**  
@@ -16,7 +15,6 @@ Producer:  **Ian Elliott**
 
 
 ## Tech
----
 Vive  
 Steam VR  
 Unity  
