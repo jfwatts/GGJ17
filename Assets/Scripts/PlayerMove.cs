@@ -23,7 +23,7 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	void MoveManager(){
-        float moveFlag = walkDetector.isWalking ? 1.0f : 0;
+        float moveFlag = walkDetector.isWalking ? walkDetector.walkVelocity : myHand.touch.y;
         //Vector3 moveAdj = head.forward * myHand.touch.y * speed;
         Vector3 moveAdj = head.forward * moveFlag * speed;
         moveAdj += head.right * myHand.touch.x * speed;

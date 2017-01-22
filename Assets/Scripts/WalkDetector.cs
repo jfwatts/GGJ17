@@ -12,7 +12,7 @@ public class WalkDetector : MonoBehaviour {
 
     public GameObject palm1;
     public GameObject palm2;
-    public float minMoveDist = 0.3f;
+    public float minMoveDist = 0.16f;
     public float lookbackWindow = 1f;
     private float sampleRate = 0.05f;
     private int maxHistory = 100;
@@ -22,7 +22,9 @@ public class WalkDetector : MonoBehaviour {
     Vector3 p1LastPos;
     Vector3 p2LastPos;
     public bool isWalking = false;
-    public float lastStepThreshold = 0.01f;
+    public float walkVelocity = 0;
+    public float lastStepThreshold = 0.005f;
+    public float velocityMultiplier = 4f;
 
     // Use this for initialization
     void Start () {
@@ -46,13 +48,21 @@ public class WalkDetector : MonoBehaviour {
         int i = 0;
         MoveParams lastPoint = null;
         MoveParams lastPoint2 = null;
+
+        MoveParams recentPoint1 = null;
+        MoveParams recentPoint2 = null;
         foreach (MoveParams param in vecList)
         {
             if (i == 0)
             {
+                recentPoint1 = param;
                 lastPoint = param;
                 i++;
                 continue;
+            }
+            if (i == 1)
+            {
+                recentPoint2 = param;
             }
             if (Mathf.Sign(lastPoint.p1Dir.y) != Mathf.Sign(param.p1Dir.y))
             {
@@ -102,6 +112,7 @@ public class WalkDetector : MonoBehaviour {
                 zDist2 += param.p2Dir.z;
             }
             lastPoint2 = lastPoint;
+           
             lastPoint = param;
             i++;
             if (param.timeStamp < time - lookbackWindow)
@@ -111,25 +122,30 @@ public class WalkDetector : MonoBehaviour {
             }
         }
 
-        float p1dly = Mathf.Abs(lastPoint2.p1Dir.y - lastPoint.p1Dir.y);
-        float p2dly = Mathf.Abs(lastPoint2.p2Dir.y - lastPoint.p2Dir.y);
-        float p1dlz = Mathf.Abs(lastPoint2.p1Dir.z - lastPoint.p1Dir.z);
-        float p2dlz = Mathf.Abs(lastPoint2.p2Dir.z - lastPoint.p2Dir.z);
+        float p1dly = Mathf.Abs(recentPoint2.p1Dir.y);
+        float p2dly = Mathf.Abs(recentPoint2.p2Dir.y);
+        float p1dlz = Mathf.Abs(recentPoint2.p1Dir.z);
+        float p2dlz = Mathf.Abs(recentPoint2.p2Dir.z);
+
+        float maxMove = Mathf.Max(recentPoint1.p1Dir.magnitude, recentPoint1.p2Dir.magnitude) * velocityMultiplier;
 
         if (yChanges1 > 0 && yChanges2 > 0 && p1dly > lastStepThreshold && p2dly > lastStepThreshold)
         {
             isWalking = true;
+            walkVelocity = maxMove;
         } else if (zChanges1 > 0 && zChanges2 > 0 && p1dlz > lastStepThreshold && p2dlz > lastStepThreshold)
         {
             isWalking = true;
+            walkVelocity = maxMove;
         } else
         {
             isWalking = false;
+            walkVelocity = 0;
         }
 
-        print("isWalking: " + isWalking);
+        //print("isWalking: " + isWalking);
         //Debug.Log(isWalking);
-        Debug.Log("y: " + p1dly + " z: " + p2dlz);
+        //Debug.Log("y: " + p1dly + " z: " + p2dlz);
         //Debug.Log("1 Y ch: " + yChanges1 + " 1 Z ch: " + zChanges1 + " 2 Y ch: " + yChanges2 + " 2 Z ch: " + zChanges2);
     }
 
