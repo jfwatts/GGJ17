@@ -27,6 +27,7 @@ public class DoorSlam : MonoBehaviour {
 			door.transform.localEulerAngles = Vector3.zero;
 			door.GetComponent<Rigidbody> ().isKinematic = true;
 			monster.GetComponent<MonsterPathing> ().speedDecay = 0.5f;
+			monster.GetComponent<AudioSource> ().Play ();
 			knob1.enabled = false;
 			knob2.enabled = false;
 			Destroy (gameObject, 0.1f);

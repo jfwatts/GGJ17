@@ -66,7 +66,7 @@ public class MonsterPathing : MonoBehaviour {
 	void Wander (){
 		int rand = Random.Range (0, 100);
 		if (rand < 33) {
-			lastSound = wanderTargets [Random.Range (0, wanderTargets.Length)];
+			lastSound = wanderTargets [Random.Range (0, wanderTargets.Length)].position;
 			lastSoundStr = 2;
 		}
 		if (rand < 50) {
