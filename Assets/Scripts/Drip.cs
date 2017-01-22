@@ -6,7 +6,7 @@ public class Drip : MonoBehaviour {
 	public GameObject drip;
 	public float distractTime;
 	public bool started = false;
-	public float timer;
+	public float timer = 0;
 	// Use this for initialization
 	void Start () {
 		
@@ -18,7 +18,7 @@ public class Drip : MonoBehaviour {
 			distractTime -= Time.deltaTime;
 		if (timer > 0 && started)
 			timer -= Time.deltaTime;
-		if (timer >= 0 && started) {
+		if (timer <= 0 && started) {
 			timer = 5;
 			GameObject lastDrip = (GameObject)Instantiate (drip, transform.position, transform.rotation);
 			if (distractTime <= 0)

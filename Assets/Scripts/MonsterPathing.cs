@@ -7,7 +7,7 @@ public class MonsterPathing : MonoBehaviour {
 	public static Vector3 lastSound;
 	public static MonsterPathing monsterAI;
 	public float lastSoundStr;
-	public float speedDecay = 0.7f;
+	public float speedDecay = 50;
 	public float noiseFrequency = 0.5f;
 	private NavMeshAgent myNav;
 	private float timer = 0;

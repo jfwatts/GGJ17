@@ -7,6 +7,7 @@ public class DoorSlam : MonoBehaviour {
 	public GameObject door;
 	public NewtonVR.NVRInteractableItem knob1;
 	public NewtonVR.NVRInteractableItem knob2;
+	public GameObject monster;
 	// Use this for initialization
 	void Start () {
 		mySound = GetComponent<AudioSource> ();
@@ -25,6 +26,7 @@ public class DoorSlam : MonoBehaviour {
 			door.transform.localPosition = Vector3.zero;
 			door.transform.localEulerAngles = Vector3.zero;
 			door.GetComponent<Rigidbody> ().isKinematic = true;
+			monster.GetComponent<MonsterPathing> ().speedDecay = 0.5f;
 			knob1.enabled = false;
 			knob2.enabled = false;
 			Destroy (gameObject, 0.1f);
