@@ -11,12 +11,18 @@ public class RecordScratching : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision other){
+		if (other.gameObject.name != "Table" &&other.gameObject.name != "SoundPulse(Clone)") {
+			print (other.gameObject.name);
 			GetComponent<RecordPlayer> ().enabled = true;
 			this.enabled = false;
+		}
 	}
 	void OnTriggerEnter(Collider other){
-		GetComponent<RecordPlayer> ().enabled = true;
-		this.enabled = false;
+		if (other.gameObject.name != "Table" &&other.gameObject.name != "SoundPulse(Clone)") {
+			print (other.gameObject.name);
+			GetComponent<RecordPlayer> ().enabled = true;
+			this.enabled = false;
+		}
 	}
 	// Update is called once per frame
 	void Update () {
