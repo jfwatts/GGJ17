@@ -24,8 +24,8 @@ public class Keyplate : MonoBehaviour {
 			knobs [1].enabled = true;
 		}
 		if (other.gameObject.name == "Knob") {
-			knob.SetActive (true);
 			Destroy (other.gameObject);
+			knob.SetActive (true);
 		}
 	}
 }
