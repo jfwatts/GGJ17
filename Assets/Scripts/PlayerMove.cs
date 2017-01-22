@@ -5,7 +5,7 @@ public class PlayerMove : MonoBehaviour {
 	public Collider myCol;
 	public static Collider playerCollider;
 	public HandMovement myHand;
-	private Rigidbody myBody;
+	public Rigidbody myBody;
 	public Transform head;
 	public float speed = 5;
 

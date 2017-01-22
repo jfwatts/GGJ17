@@ -12,6 +12,9 @@ public class MonsterPathing : MonoBehaviour {
 	private NavMeshAgent myNav;
 	private float timer = 0;
 	private float anotherTimer = 0;
+
+	public GameObject deathSprite;
+	public PlayerMove player;
 	// Use this for initialization
 	void Start () {
 		monsterAI = this;
@@ -20,6 +23,9 @@ public class MonsterPathing : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetKeyDown (KeyCode.I)) {
+			StartCoroutine (KillPlayer());
+		}
 		if (timer > 0)
 			timer -= Time.deltaTime;
 		if (anotherTimer > 0)
@@ -43,5 +49,17 @@ public class MonsterPathing : MonoBehaviour {
 		lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = 1;
 		lastPulse.GetComponent<SoundPulse> ().decay = 6f;
 		lastPulse.GetComponent<SoundPulseCheap> ().UpdateLifeSpan ();
+	}
+	void OnCollisionEnter(Collision other){
+		if (other.gameObject.tag == "Player") {
+			StartCoroutine (KillPlayer());
+		}
+	}
+	IEnumerator KillPlayer(){
+		deathSprite.SetActive (true);
+		deathSprite.GetComponent<Animator> ().SetBool ("go", true);
+		player.myBody.isKinematic = true;
+		yield return new WaitForSeconds (2);
+		UnityEngine.SceneManagement.SceneManager.LoadScene (0);
 	}
 }
