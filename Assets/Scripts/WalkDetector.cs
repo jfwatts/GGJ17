@@ -12,6 +12,8 @@ public class WalkDetector : MonoBehaviour {
 
     public GameObject palm1;
     public GameObject palm2;
+    public float minMoveDist = 0.3f;
+    public float lookbackWindow = 1f;
     private float sampleRate = 0.05f;
     private int maxHistory = 100;
     private LinkedList<MoveParams> vecList = new LinkedList<MoveParams>();
@@ -38,7 +40,7 @@ public class WalkDetector : MonoBehaviour {
         float zDist1 = 0;
         float yDist2 = 0;
         float zDist2 = 0;
-        float minMoveDist = 0.3f;
+        
         
         int i = 0;
         MoveParams lastPoint = null;
@@ -69,7 +71,7 @@ public class WalkDetector : MonoBehaviour {
                 {
                     zChanges1++;
                 }
-             
+               
                 zDist1 = 0;
             } else
             {
@@ -100,7 +102,7 @@ public class WalkDetector : MonoBehaviour {
 
             lastPoint = param;
             i++;
-            if (param.timeStamp < time - 0.5f)
+            if (param.timeStamp < time - lookbackWindow)
             {
                 break;
             }
