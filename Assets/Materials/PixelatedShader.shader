@@ -17,9 +17,9 @@
 
 	uniform int _gNumPulses = 0;
 
-	uniform float4 _gPulseCenters[20];
-	uniform float _gPulseRadiuses[20];
-	uniform float _gPulseDecayPower[20];
+	uniform float4 _gPulseCenters[50];
+	uniform float _gPulseRadiuses[50];
+	uniform float _gPulseDecayPower[50];
 	uniform int _gLightsOn = 0;
 	uniform int _gNumCircles = 3;
 
