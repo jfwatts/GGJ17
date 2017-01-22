@@ -6,9 +6,10 @@ public class RecordPlayer : MonoBehaviour {
 	public GameObject soundPulse;
 	public float frequency = 1;
 	private float timer = 1;
+	public AudioSource mySound;
 	// Use this for initialization
-	void Start () {
-		
+	void OnEnable () {
+		mySound.Play ();
 	}
 	
 	// Update is called once per frame
