@@ -22,7 +22,7 @@ public class WalkDetector : MonoBehaviour {
     Vector3 p1LastPos;
     Vector3 p2LastPos;
     public bool isWalking = false;
-
+    public float lastStepThreshold = 0.01f;
 
     // Use this for initialization
     void Start () {
@@ -40,10 +40,12 @@ public class WalkDetector : MonoBehaviour {
         float zDist1 = 0;
         float yDist2 = 0;
         float zDist2 = 0;
+
         
         
         int i = 0;
         MoveParams lastPoint = null;
+        MoveParams lastPoint2 = null;
         foreach (MoveParams param in vecList)
         {
             if (i == 0)
@@ -99,27 +101,35 @@ public class WalkDetector : MonoBehaviour {
             {
                 zDist2 += param.p2Dir.z;
             }
-
+            lastPoint2 = lastPoint;
             lastPoint = param;
             i++;
             if (param.timeStamp < time - lookbackWindow)
             {
+
                 break;
             }
         }
 
-        if (yChanges1 > 0 && yChanges2 > 0 && Mathf.Sign(yDist1) != Mathf.Sign(yDist2))
+        float p1dly = Mathf.Abs(lastPoint2.p1Dir.y - lastPoint.p1Dir.y);
+        float p2dly = Mathf.Abs(lastPoint2.p2Dir.y - lastPoint.p2Dir.y);
+        float p1dlz = Mathf.Abs(lastPoint2.p1Dir.z - lastPoint.p1Dir.z);
+        float p2dlz = Mathf.Abs(lastPoint2.p2Dir.z - lastPoint.p2Dir.z);
+
+        if (yChanges1 > 0 && yChanges2 > 0 && p1dly > lastStepThreshold && p2dly > lastStepThreshold)
         {
             isWalking = true;
-        } else if (zChanges1 > 0 && zChanges2 > 0 && Mathf.Sign(zDist1) != Mathf.Sign(zDist2))
+        } else if (zChanges1 > 0 && zChanges2 > 0 && p1dlz > lastStepThreshold && p2dlz > lastStepThreshold)
         {
             isWalking = true;
         } else
         {
             isWalking = false;
         }
-        Debug.Log(isWalking);
-        //Debug.Log("y: " + yDist1 + " z: " + zDist1);
+
+        print("isWalking: " + isWalking);
+        //Debug.Log(isWalking);
+        Debug.Log("y: " + p1dly + " z: " + p2dlz);
         //Debug.Log("1 Y ch: " + yChanges1 + " 1 Z ch: " + zChanges1 + " 2 Y ch: " + yChanges2 + " 2 Z ch: " + zChanges2);
     }
 
