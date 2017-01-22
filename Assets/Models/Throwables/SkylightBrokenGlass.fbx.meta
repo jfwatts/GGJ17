@@ -1,17 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 8c45231c081f16140b42cd6b9fcd3fab
-timeCreated: 1485051749
-=======
-<<<<<<< HEAD
-guid: 02e6c7c210fa3c84389a5452f8acb846
-timeCreated: 1485051677
-=======
 guid: d0b9c109d764b4f5d9b463d843742bca
-timeCreated: 1485051989
->>>>>>> 1a361f6665d9fb46a881794a537daa5fd6ad9cfb
->>>>>>> bc73feb5bd13b7b2cdd05e72411d53810e702657
-licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -197,6 +185,7 @@ ModelImporter:
     4300066: GlassNotBroken_cell.002
     4300068: GlassNotBroken_cell.001
     4300070: GlassNotBroken_cell
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -221,7 +210,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -259,7 +248,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
