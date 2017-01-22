@@ -33,7 +33,7 @@ public class PlayerMove : MonoBehaviour {
 		myBody.velocity = moveAdj;
 	}
 	void OnCollisionEnter(){
-		SteamVR_Controller.Input(myHands[0]).TriggerHapticPulse(3999);
-		SteamVR_Controller.Input(myHands[1]).TriggerHapticPulse(3999);
+		SteamVR_Controller.Input((int)myHands[0].myIndex).TriggerHapticPulse(3999);
+		SteamVR_Controller.Input((int)myHands[1].myIndex).TriggerHapticPulse(3999);
 	}
 }
