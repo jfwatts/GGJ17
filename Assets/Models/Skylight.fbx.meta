@@ -1,17 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: b4ebf96c0c7e9f94aa333bec10f2ef72
-timeCreated: 1485051749
-=======
-<<<<<<< HEAD
 guid: 9d66924f459c7b34889136ddb485553d
-timeCreated: 1485051678
-=======
-guid: 7a7044eaa96f640819218820c0c26f7e
-timeCreated: 1485051985
->>>>>>> 1a361f6665d9fb46a881794a537daa5fd6ad9cfb
->>>>>>> bc73feb5bd13b7b2cdd05e72411d53810e702657
-licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -20,6 +8,7 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Skylight
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -44,7 +33,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -82,7 +71,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
