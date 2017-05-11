@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Dripped : MonoBehaviour {
 	public GameObject soundPulse;
+	
 	public bool deadSound = false;
 	// Use this for initialization
 	void Start () {
@@ -20,8 +21,7 @@ public class Dripped : MonoBehaviour {
 		lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = 5.0f;
 		lastPulse.GetComponent<SoundPulse> ().decay = 3.5f;
 		if (!deadSound)
-			MonsterPathing.monsterAI.HeardSomething (transform.position, 2);
-		
+			MonsterPathing.monsterAI.HeardSomething (transform.position, 2);		
 		GetComponent<AudioSource> ().Play ();
 		GetComponent<Rigidbody> ().isKinematic = true;
 		Destroy (gameObject, 0.3f);

@@ -12,7 +12,9 @@ public class Hand : MonoBehaviour {
 	public GameObject theMenu;
 	public GameObject Pointer;
 	public GameObject soundPulse;
+	public GameObject monster;
 	private float snapTimer = 0;
+
 	// Use this for initialization
 	void Start () {
 		myTrack = GetComponent<SteamVR_TrackedObject> ();
@@ -55,12 +57,13 @@ public class Hand : MonoBehaviour {
 
 	void Snap(){
 		//snapTimer = 0;
+		this.GetComponent<AudioSource> ().Play ();
 		GameObject lastPulse = (GameObject)Instantiate (soundPulse, transform.position, transform.rotation);
 		SteamVR_Controller.Input(myIndex).TriggerHapticPulse(2000);
 		lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = 5.0f;
 		lastPulse.GetComponent<SoundPulse> ().decay = 3.5f;
-		MonsterPathing.monsterAI.HeardSomething (transform.position, 2);
-		GetComponent<AudioSource> ().Play ();
+		if (monster.GetComponent<MonsterPathing>().enabled)
+			MonsterPathing.monsterAI.HeardSomething (transform.position, 2);
 	}
 
 	void OnTriggerEnter(){
