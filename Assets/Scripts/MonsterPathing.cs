@@ -18,14 +18,26 @@ public class MonsterPathing : MonoBehaviour {
 	public Transform[] wanderTargets;
 	public AudioSource mySound;
 	public AudioClip[] sounds;
+	public float speedMult = 1;
+	public GameObject bigSound;
 	// Use this for initialization
 	void Start () {
 		monsterAI = this;
 		myNav = GetComponent<NavMeshAgent> ();
 	}
 	
-	// Update is called once per frame
+	public void StartNoise() {
+		StartCoroutine(DoNoiseThing());
+	}
+	IEnumerator DoNoiseThing() {
+		for(int i = 0; i < 10; i++) {
+			GameObject lastPulse = (GameObject)Instantiate(bigSound, transform.position, transform.rotation);
+			yield return new WaitForSeconds(0.5f);
+		}
+	}
 	void Update () {
+		if (lastSoundStr < 0)
+			lastSoundStr = 0;
 		if (Input.GetKeyDown (KeyCode.I)) {
 			StartCoroutine (KillPlayer());
 		}
@@ -38,19 +50,20 @@ public class MonsterPathing : MonoBehaviour {
 			Wander ();
 		}
 
-		if (timer <= 0 && myNav.speed > 1) {
+		if (timer <= 0 && myNav.speed > 0.1f) {
 			timer = noiseFrequency;
 			MakeNoise ();
 		}
 		myNav.SetDestination (lastSound);
 		if(lastSoundStr > 0)
 			lastSoundStr -= Time.deltaTime * speedDecay;
-		myNav.speed = lastSoundStr;
+		myNav.speed = lastSoundStr * speedMult;
 	}
 	public void HeardSomething (Vector3 where, float strength){
 		lastSound = where;
 		timer = noiseFrequency;
-		lastSoundStr = strength;
+		lastSoundStr = 0;
+		lastSoundStr += strength;
 	}
 	void MakeNoise (){
 		GameObject lastPulse = (GameObject)Instantiate (soundPulse, transform.position, transform.rotation);
@@ -65,11 +78,11 @@ public class MonsterPathing : MonoBehaviour {
 	}
 	void Wander (){
 		int rand = Random.Range (0, 100);
-		if (rand < 50) {
+		if (rand < 33) {
 			lastSound = wanderTargets [Random.Range (0, wanderTargets.Length)].position;
 			lastSoundStr = 2;
 		}
-		if (rand < 75) {
+		if (rand < 50) {
 			mySound.clip = sounds [Random.Range (0, sounds.Length)];
 			mySound.Play ();
 		}

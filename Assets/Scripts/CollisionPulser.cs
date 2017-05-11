@@ -9,6 +9,7 @@ public class CollisionPulser : MonoBehaviour {
 	private float timer = 0;
 	public float cooldown = 1.0f;
 	public bool player = false;
+	public bool oneAndDone = false;
 	// Use this for initialization
 	void Start () {
 		if(GetComponent<AudioSource>() != null)
@@ -22,17 +23,21 @@ public class CollisionPulser : MonoBehaviour {
 	}
 
 	void OnCollisionEnter (Collision other){
-		if(!(gameObject.tag == "Player" && other.gameObject.tag == "Floor") && timer <= 0){
+		if (!(gameObject.tag == "Player" && other.gameObject.tag == "Floor") && timer <= 0 && Time.time > 2){ 
 			timer = cooldown;
-			GameObject lastPulse = (GameObject)Instantiate (soundPulser, other.contacts [0].point, transform.rotation);
-			MonsterPathing.monsterAI.HeardSomething (transform.position, GetComponent<Rigidbody> ().velocity.magnitude * multi);
-			lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = GetComponent<Rigidbody> ().velocity.magnitude * multi;
-			if (player)
-				lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = 4;
+			GameObject lastPulse = (GameObject)Instantiate(soundPulser, transform.position, transform.rotation);
+			//MonsterPathing.monsterAI.HeardSomething(transform.position, GetComponent<Rigidbody>().velocity.magnitude * multi);
+			MonsterPathing.monsterAI.HeardSomething(transform.position, 3 * multi);
+			lastPulse.GetComponent<SoundPulseCheap>().lifeSpan =  4 * multi;
+			if (player) {
+				lastPulse.GetComponent<SoundPulseCheap>().lifeSpan = 4;
+			}
 			lastPulse.GetComponent<SoundPulseCheap> ().UpdateLifeSpan ();
 			if (mySound != null) {
 				mySound.Play ();
 			}
+			if (oneAndDone)
+				Destroy(this);
 		}
 	}
 }

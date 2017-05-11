@@ -12,10 +12,13 @@ public class Hand : MonoBehaviour {
 	public GameObject theMenu;
 	public GameObject Pointer;
 	public GameObject soundPulse;
-	public GameObject monster;
 	private float snapTimer = 0;
-
+	public static GameObject moveHand;
 	// Use this for initialization
+	void Awake() {
+		if (!left)
+			moveHand = gameObject;
+	}
 	void Start () {
 		myTrack = GetComponent<SteamVR_TrackedObject> ();
 		myIndex = (int)myTrack.index;
@@ -44,10 +47,10 @@ public class Hand : MonoBehaviour {
 
 
 		if (SteamVR_Controller.Input (myIndex).GetPressDown (SteamVR_Controller.ButtonMask.ApplicationMenu) && left) {
-			if(theMenu.activeInHierarchy)
-				theMenu.SetActive(false);
-			else if(!theMenu.activeInHierarchy)
-				theMenu.SetActive(true);
+		//	if(theMenu.activeInHierarchy)
+		//		theMenu.SetActive(false);
+		//	else if(!theMenu.activeInHierarchy)
+		//		theMenu.SetActive(true);
 		}
 
 		if ((SteamVR_Controller.Input (myIndex).GetPressDown (SteamVR_Controller.ButtonMask.Trigger) || Input.GetKeyDown(KeyCode.P))) {
@@ -57,13 +60,12 @@ public class Hand : MonoBehaviour {
 
 	void Snap(){
 		//snapTimer = 0;
-		this.GetComponent<AudioSource> ().Play ();
 		GameObject lastPulse = (GameObject)Instantiate (soundPulse, transform.position, transform.rotation);
 		SteamVR_Controller.Input(myIndex).TriggerHapticPulse(2000);
 		lastPulse.GetComponent<SoundPulseCheap> ().lifeSpan = 5.0f;
 		lastPulse.GetComponent<SoundPulse> ().decay = 3.5f;
-		if (monster.GetComponent<MonsterPathing>().enabled)
-			MonsterPathing.monsterAI.HeardSomething (transform.position, 2);
+		MonsterPathing.monsterAI.HeardSomething (transform.position, 2);
+		GetComponent<AudioSource> ().Play ();
 	}
 
 	void OnTriggerEnter(){

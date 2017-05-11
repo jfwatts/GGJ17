@@ -29,12 +29,14 @@ public class Gong : MonoBehaviour {
 			//print (other.gameObject.name);
 			PlaySound(0);
 			if (!alreadyPlayed)
-				titan.Play ();
+				Invoke("DoThing", 2f);
 			alreadyPlayed = true;
 			player.GetComponent<Rigidbody>().useGravity = false;		
 		}
 	}
-
+	void DoThing() {
+		titan.Play();
+	}
 	void PlaySound(int aclip)
 	{
 		mySound.clip = audioClip[aclip];
