@@ -20,11 +20,13 @@ public class Shatter : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other){
 		if (shatterThreshold != 0 && other.relativeVelocity.magnitude > shatterThreshold) {
-			ShatterMe();
+			Invoke("ShatterMe", 0.1f);
 		}
 	}
 
-	public void ShatterMe (){
+	public void ShatterMe () {
+		if (GetComponent<NewtonVR.NVRInteractableItem>() != null)
+			GetComponent<NewtonVR.NVRInteractableItem>().EndInteraction();
 		GameObject lastSpawn = (GameObject)Instantiate (shatterModel, transform.position, transform.rotation);
 		if (lastSpawn.GetComponent<AudioSource> () != null) {
 			lastSpawn.GetComponent<AudioSource>().clip = sounds[Random.Range(0,sounds.Length)];
@@ -35,6 +37,6 @@ public class Shatter : MonoBehaviour {
 		GetComponent<Renderer> ().enabled = false;
 		GetComponent<Rigidbody> ().isKinematic = true;
 		GetComponent<Collider> ().isTrigger = true;
-		Destroy(gameObject, 0.4f);
+		Destroy(gameObject, 1);
 	}
 }
